@@ -1,0 +1,149 @@
+body {
+  color: #265073;
+  background-color: #ecf4d6;
+  font-family: Franklin Gothic Medium, Arial Narrow, Arial, sans-serif;
+  font-size: small;
+}
+
+header {
+  background-color: #9ad0c2;
+}
+
+.container {
+  width: auto;
+  max-width: 85%;
+}
+
+header h1 {
+  text-align: center;
+  border-bottom: 4px solid #2d9596;
+  width: 80%;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+#episodelist-container {
+  width: auto;
+}
+
+#episode-list {
+  color: #000;
+}
+
+main {
+  margin-top: 40px;
+  margin-left: 20px;
+  padding: 1em;
+}
+
+.episode-list {
+  color: #265073;
+  width: 100%;
+}
+
+#table-header {
+  color: #265073;
+}
+
+.episode-list tr, .episode-list td {
+  border-top: 1px solid #2d9596;
+  width: 15%;
+  padding: 10px;
+  font-size: small;
+}
+
+#links {
+  flex-direction: row;
+  width: 50%;
+  margin: auto;
+  display: flex;
+}
+
+#work-link {
+  text-align: center;
+  color: #fff;
+  border: 2px solid #2d9596;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  display: block;
+  box-shadow: 0 0 5px #0000004d;
+}
+
+#work-link:hover {
+  color: #9ad0c2;
+  background-color: #ecf4d6;
+}
+
+#work-link:after {
+  color: #fff;
+  font-style: italic;
+}
+
+form {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.deleteBtn {
+  background-color: #fff;
+  font-family: Franklin Gothic Medium, Arial Narrow, Arial, sans-serif;
+}
+
+#addBtn {
+  background-color: #ecf4d6;
+  border: 2px solid #2d9596;
+  border-radius: 0%;
+}
+
+#addBtn:hover {
+  color: #265073;
+  background-color: #9ad0c2;
+  box-shadow: 0 0 5px #0000004d;
+}
+
+@media screen and (width <= 599px) {
+  .container, #episodelist-container {
+    max-width: 95%;
+  }
+
+  .episode-list tr, .episode-list td {
+    width: 20%;
+    padding: 10px 5px;
+    font-size: x-small;
+  }
+
+  form {
+    width: 100%;
+  }
+}
+
+@media screen and (width <= 499px) {
+  .episode-list tr, .episode-list td {
+    width: auto;
+    padding: 5px 2px;
+    font-size: xx-small;
+  }
+}
+
+input[type="text"] {
+  width: 100%;
+  height: 30px;
+  margin: 10px 10px 10px 0;
+}
+
+input[type="submit"] {
+  text-align: center;
+  border-radius: 8px;
+  width: 100%;
+  margin: 10px 10px 10px 0;
+  padding: 15px;
+  font-weight: 500;
+}
+
+table a {
+  padding-top: 10px;
+}
+/*# sourceMappingURL=index.34df27b5.css.map */

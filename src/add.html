@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add moment2</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/add.js" type="module" ></script>
+</head>
+<body>
+    <header>
+        <h1>Lägg till arbete</h1> 
+        <div id="links">
+            <p id="work-link"> <a href="/">Tillbaka till listan</a></p> 
+<p id="work-link"> <a href="./about.html">Om uppgiften</a></p> 
+        </div>
+    </header>
+    <div class="container">
+        <main>
+    
+            <h2 id="action-message"></h2>
+    <form id="course-form" method="POST">
+        <label for="companyname">Företag:</label>
+        <br>
+        <input type="text" id="companyname" name="companyname">
+        <br>
+        <label for="jobtitle">Titel:</label>
+        <br>
+        <input type="text" id="jobtitle" name="jobtitle">
+        <br>
+        <label for="startdate">Startdatum:</label>
+        <br>
+        <input type="text" id="startdate" name="startdate">
+        <br>       
+        <label for="enddate">Slutdatum:</label>
+        <br>
+        <input type="text" id="enddate" name="enddate">
+        <br> 
+        <label for="description">Beskrivning:</label>
+        <br>
+        <input type="text" id="description" name="description">
+        <br>
+        <input type="submit" id="addBtn" value="Lägg till">       
+    </form>
+    
+    </main>
+    </div>  
+    
+</body>
+</html>

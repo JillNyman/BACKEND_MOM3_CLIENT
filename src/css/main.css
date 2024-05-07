@@ -1,0 +1,167 @@
+
+
+body{
+    background-color: #ecf4d6;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #265073;
+    font-size: small;
+}
+
+header{
+    background-color: #9ad0c2;
+}
+
+
+
+.container{
+    width: auto;
+    max-width: 85%;
+   /* margin: 0 auto;*/
+}
+
+header h1{
+    width: 80%;
+    border-bottom: 4px solid #2d9596;
+    padding: 20px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+#episodelist-container{
+    width: auto;
+}
+
+#episode-list{
+    color: black;
+}
+
+main{
+    padding: 1em;
+    margin-top: 40px;
+    margin-left: 20px;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+}
+
+.episode-list{
+    width: 100%;
+    color: #265073;
+    /*display: flex;
+    flex-direction: row;*/
+}
+
+#table-header{
+    color: #265073;
+}
+
+.episode-list tr, .episode-list td{
+    width: 15%;
+    border-top: 1px solid #2d9596;
+    padding: 10px;
+    font-size: small;
+}
+
+#links{
+    display:flex;
+    flex-direction: row;
+    width: 50%;
+    margin: auto;
+}
+
+#work-link{
+    border: 2px solid #2d9596;
+    padding: 20px;
+    /*width: 40%;*/
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ffffff;
+}
+
+#work-link:hover{
+    background-color: #ecf4d6;
+    color: #9ad0c2;
+
+}
+
+
+#work-link:after{
+    font-style: italic;
+    color: #ffffff;
+}
+
+form{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.deleteBtn{
+    background-color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#addBtn{
+    border: 2px solid #2d9596;
+    background-color: #ecf4d6;
+    border-radius: 0%;
+
+}
+
+#addBtn:hover{
+    background-color: #9ad0c2;
+    color: #265073;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+
+}
+
+@media screen and (max-width: 599px) {
+    .container{
+        max-width: 95%;
+    }
+       
+    #episodelist-container{
+        max-width: 95%;
+        
+    }
+    
+    .episode-list tr, .episode-list td{
+        width: 20%;
+        padding: 10px 5px;
+        font-size: x-small;
+    }
+        
+    form{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 499px) {
+    .episode-list tr, .episode-list td{
+        width: auto;
+        padding: 5px 2px;
+        font-size: xx-small;
+    }
+}
+
+input[type = text]{
+    margin: 10px 10px 10px 0;
+    height: 30px;
+    width: 100%;
+}
+
+input[type=submit]{
+    margin: 10px 10px 10px 0;
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+    font-weight: 500;
+    border-radius: 8px;
+
+}
+
+table a{
+    padding-top: 10px;
+}

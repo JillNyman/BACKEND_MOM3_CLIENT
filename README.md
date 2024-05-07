@@ -1,0 +1,3 @@
+Det här är klientdelen av applikationen som tillhör uppgift 2 i moment 3, Backendkursen. Det finns tre sidor; den första (/index.html) som hämtar en kollektion från mongoDB och presenterar den i en lista. På den andra (/add.html)kan användaren lägga till ett nytt dokument till databasen genom ett POST-anrop, i det här fallet en ny arbetslivserfarenhet. Den tredje sidan (/about.html)är en beskrivning av uppgiften samt kort reflektion kring den. 
+
+För att starta applikationen: npm run start
