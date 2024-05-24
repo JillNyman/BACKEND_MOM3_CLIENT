@@ -26,6 +26,10 @@ async function addJob(e){
         description: inputDescription.value
     };
 
+    if(companyname.value === 0 || jobtitle.value === 0){
+        messageEl.innerHTML = "Du måste fylla i fälten 'Företag' och 'Titel'!";
+    }
+
     
     const response = await fetch('http://127.0.0.1:3000/curriculums', {
         method: "POST",
@@ -36,7 +40,13 @@ async function addJob(e){
         body: JSON.stringify(job)
     });
 
-    let data = await response.json();   
+      
+    if(!response.ok){
+        messageEl.innerHTML = "Kunde inte lägga till nytt arbete.";
+        return;
+    }
+
+    let data = await response.json(); 
     messageEl.innerHTML = "Posten har lagts till i listan!";
     
     inputCompanyname.value = '';
@@ -45,6 +55,7 @@ async function addJob(e){
     inputEnddate.value = '';
     inputDescription.value = '';
 
+    window.location.href = "/src/index.html";
     return data;
 
     

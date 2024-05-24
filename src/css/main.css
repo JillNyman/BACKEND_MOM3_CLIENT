@@ -54,10 +54,14 @@ main{
 }
 
 .episode-list tr, .episode-list td{
-    width: 15%;
-    border-top: 1px solid #2d9596;
+    width: 20%;    
     padding: 10px;
     font-size: small;
+}
+
+.divideline{
+    border-bottom: 1px solid #2d9596;
+   
 }
 
 #links{
@@ -98,9 +102,10 @@ form{
     margin-right: auto;
 }
 
-.deleteBtn{
+.deleteBtn, .editBtn{
     background-color: #ffffff;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 5px;
 }
 
 #addBtn{
@@ -164,4 +169,8 @@ input[type=submit]{
 
 table a{
     padding-top: 10px;
+}
+
+tr {
+    border-bottom: 1px solid #2d9596;
 }
