@@ -620,11 +620,13 @@ async function addJob(e) {
     }
     let data = await response.json();
     messageEl.innerHTML = "Posten har lagts till i listan!";
+    //Töm input-fälten
     inputCompanyname.value = "";
     inputJobtitle.value = "";
     inputStartdate.value = "";
     inputEnddate.value = "";
     inputDescription.value = "";
+    //Dirigerar om till startsidan
     window.location.href = "/src/index.html";
     return data;
 }

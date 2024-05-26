@@ -4,6 +4,7 @@ const episodes = document.getElementById("episode-list");
 //Plats för meddelanden
 const messageEl = document.getElementById("message");
 
+//Funktion som körs vid laddning av sidan
 getData();
 
 //Hämta lista med arbeten från databas
@@ -25,8 +26,11 @@ async function getData() {
     let data = await response.json();
     console.table(data); 
 
+    //Anropa funktion som skriver ut listan
     makeList(data);
+
 } catch (error){
+
     console.error("Fel när data skulle hämtas: ", error);
     messageEl.innerHTML = "Ett fel uppstod när tabellen skulle hämtas.";
 }    
@@ -35,7 +39,9 @@ async function getData() {
 
 //Skriv ut listan
 function makeList(data){
+    //Töm först listan, för att undvika dubletter
     episodes.innerHTML = "";  
+    //Skapa nytt element för tabell
     let newEl = document.createElement("tbody");
     newEl.className = "table-body";
     
@@ -57,7 +63,7 @@ function makeList(data){
         lowerRow.innerHTML = `
             <td>${dat.jobtitle}</td>
             <td>${dat.enddate}</td>
-            <td></td>
+            
         `;  
 
         let deleteTd = document.createElement('td');
@@ -69,7 +75,6 @@ function makeList(data){
 
         deleteTd.appendChild(deleteBtn);
         lowerRow.appendChild(deleteTd);
-
 
         newEl.appendChild(upperRow);
         newEl.appendChild(lowerRow);
@@ -105,34 +110,3 @@ async function deletePost(id){
 }
 };
 
-//Ta bort post i listan
-//ObjectId('${id}'
-/*async function deletePost(id){
-    console.log("Hämtat från DOM: ", id);
-    let oneTr = document.getElementById(`job${dat._id}`);
-    let thisID = oneTr.id.slice(3);
-    console.log("Tr-id: ", thisID); 
-    
-
-    try{
-    const response = await fetch(`http://127.0.0.1:3000/curriculums/${thisID}`, { 
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },      
-    });
-    console.log("Response skickat från fron till back: ", response);
-
-    if(!response.ok){
-        messageEl.innerHTML = "Lyckades inte radera posten!";
-        return;
-    }
-
-    let data = await response.json();  
-    console.log("Posten raderad: ", data);
-    getData();
-} catch (error){
-    console.error("Error: ", error);
-    messageEl.innerHTML = "Ett fel uppstod när posten skulle raderas";
-}
-}*/
