@@ -1,6 +1,10 @@
 "use strict";
 //Lista på arbeten
 const episodes = document.getElementById("episode-list");
+//Tabellhuvud
+const tableHead = document.getElementById("thead");
+//Tabell-poster
+const tableBody = document.getElementById("tbody");
 //Plats för meddelanden
 const messageEl = document.getElementById("message");
 
@@ -40,48 +44,36 @@ async function getData() {
 //Skriv ut listan
 function makeList(data){
     //Töm först listan, för att undvika dubletter
-    episodes.innerHTML = "";  
-    //Skapa nytt element för tabell
-    let newEl = document.createElement("tbody");
-    newEl.className = "table-body";
-    
+    tableBody.innerHTML = "";  
+  
           
-    data.forEach(dat => {     
-        
-        let upperRow = document.createElement("tr");
-        upperRow.id = `job${dat._id}`;
-        upperRow.setAttribute("rowspan", "2");
-
-         upperRow.innerHTML =`
-             <td> ${dat.companyname} </td>
-             <td> ${dat.startdate}</td>
-             <td> ${dat.description}</td>
-        `;
-
-        let lowerRow = document.createElement("tr");
-        lowerRow.className = "divideline";
-        lowerRow.innerHTML = `
+    data.forEach(dat => {            
+      
+        tableBody.innerHTML += `
+        <tr rowspan="2">
+            <td> ${dat.companyname}</td>
+            <td> ${dat.startdate}</td>
+            <td> ${dat.description}</td>
+        </tr>
+        <tr>
             <td>${dat.jobtitle}</td>
             <td>${dat.enddate}</td>
-            
-        `;  
+            <td></td>
+        </tr>
 
-        let deleteTd = document.createElement('td');
-        let deleteBtn = document.createElement("button");
+        `;
+             
+        let deleteBtn = document.createElement('button');
         deleteBtn.textContent = "Radera";
         deleteBtn.id = dat._id; 
         deleteBtn.className = "deleteBtn"; 
         deleteBtn.addEventListener('click', () => deletePost(dat._id));
 
-        deleteTd.appendChild(deleteBtn);
-        lowerRow.appendChild(deleteTd);
-
-        newEl.appendChild(upperRow);
-        newEl.appendChild(lowerRow);
+        tableBody.appendChild(deleteBtn);      
+        episodes.appendChild(tableBody);
    
     });   
 
-    episodes.appendChild(newEl);
    
 };
 

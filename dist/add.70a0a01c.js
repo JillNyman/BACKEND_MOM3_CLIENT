@@ -591,8 +591,11 @@ const inputJobtitle = document.getElementById("jobtitle");
 const inputStartdate = document.getElementById("startdate");
 const inputEnddate = document.getElementById("enddate");
 const inputDescription = document.getElementById("description");
+//Knapp: lägg till
 const addBtn = document.getElementById("addBtn");
+//Formuläret
 const formEl = document.getElementById("course-form");
+//Felmeddelanden med mera
 const messageEl = document.getElementById("action-message");
 //Knapp: lägg till nytt arbete
 addBtn.addEventListener("click", addJob, false);
@@ -606,29 +609,37 @@ async function addJob(e) {
         enddate: inputEnddate.value,
         description: inputDescription.value
     };
-    if (companyname.value === 0 || jobtitle.value === 0) messageEl.innerHTML = "Du m\xe5ste fylla i f\xe4lten 'F\xf6retag' och 'Titel'!";
-    const response = await fetch("http://127.0.0.1:3000/curriculums", {
-        method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify(job)
-    });
-    if (!response.ok) {
-        messageEl.innerHTML = "Kunde inte l\xe4gga till nytt arbete.";
+    if (!job.companyname || !job.jobtitle) {
+        messageEl.innerHTML = "Du m\xe5ste fylla i f\xe4lten 'F\xf6retag' och 'Titel'!";
         return;
     }
-    let data = await response.json();
-    messageEl.innerHTML = "Posten har lagts till i listan!";
-    //Töm input-fälten
-    inputCompanyname.value = "";
-    inputJobtitle.value = "";
-    inputStartdate.value = "";
-    inputEnddate.value = "";
-    inputDescription.value = "";
-    //Dirigerar om till startsidan
-    window.location.href = "/src/index.html";
-    return data;
+    try {
+        const response = await fetch("http://127.0.0.1:3000/curriculums", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(job)
+        });
+        if (!response.ok) {
+            messageEl.innerHTML = "Kunde inte l\xe4gga till nytt arbete.";
+            return;
+        }
+        let data = await response.json();
+        messageEl.innerHTML = "Posten har lagts till i listan!";
+        //Töm input-fälten
+        inputCompanyname.value = "";
+        inputJobtitle.value = "";
+        inputStartdate.value = "";
+        inputEnddate.value = "";
+        inputDescription.value = "";
+        //Dirigerar om till startsidan
+        window.location.href = "/index.html";
+        return data;
+    } catch (error) {
+        console.error("Error: ", error);
+        messageEl.innerHTML = "Databasen refuserade posten!";
+    }
 }
 
 },{}]},["aEMIW","eoI2d"], "eoI2d", "parcelRequire63a0")

@@ -29,10 +29,11 @@ async function addJob(e){
         description: inputDescription.value
     };
 
-    if(companyname.value === 0 || jobtitle.value === 0){
+    if(!job.companyname || !job.jobtitle){
         messageEl.innerHTML = "Du måste fylla i fälten 'Företag' och 'Titel'!";
+        return;
     }
-    
+    try{
     const response = await fetch('http://127.0.0.1:3000/curriculums', {
         method: "POST",
         
@@ -59,8 +60,12 @@ async function addJob(e){
     inputDescription.value = '';
 
     //Dirigerar om till startsidan
-    window.location.href = "/src/index.html";
+    window.location.href = "/index.html";
     return data;
+} catch (error){
+    console.error("Error: ", error);
+    messageEl.innerHTML = "Databasen refuserade posten!";
+}
 
     
     
