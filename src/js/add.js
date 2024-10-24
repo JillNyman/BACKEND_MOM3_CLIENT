@@ -29,8 +29,25 @@ async function addJob(e){
         description: inputDescription.value
     };
 
-    if(!job.companyname || !job.jobtitle){
-        messageEl.innerHTML = "Du måste fylla i fälten 'Företag' och 'Titel'!";
+    //Validering
+    if(!job.companyname){
+        messageEl.innerHTML = "Du måste fylla i fältet 'Företag'!";
+        return;
+    }
+    if(!job.jobtitle){
+        messageEl.innerHTML = "Du måste fylla i fältet 'Titel'!";
+        return;
+    }
+    if(!job.startdate){
+        messageEl.innerHTML = "Du måste fylla i fältet 'Stardatum'!";
+        return;
+    }
+    if(!job.enddate){
+        messageEl.innerHTML = "Du måste fylla i fältet 'Slutdatum'!";
+        return;
+    }
+    if(!job.description){
+        messageEl.innerHTML = "Du måste fylla i fältet 'Beskrivning'!";
         return;
     }
     try{
